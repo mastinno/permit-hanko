@@ -1,0 +1,20 @@
+@import url("common.css");
+
+.main {
+    margin-top: 10%;
+}
+
+.auth-container {
+    max-width: 360px;
+    min-width: 200px;
+    margin: auto;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+@media screen and (max-width: 470px) {
+    .auth-container {
+        padding: 10px;
+    }
+}
+

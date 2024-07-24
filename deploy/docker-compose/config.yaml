@@ -1,0 +1,39 @@
+database:
+  user: hanko
+  password: hanko
+  host: postgresd
+  port: 5432
+  dialect: postgres
+smtp:
+  host: mailslurper
+  port: 2500
+passcode:
+  email:
+    from_address: no-reply@hanko.io
+  smtp:
+    host: mailslurper
+    port: 2500
+secrets:
+  keys:
+    - abcedfghijklmnopqrstuvwxyz
+service:
+  name: Hanko Authentication Service
+webauthn:
+  relying_party:
+    id: "solidvillage.com"
+    origins:
+      - "https://solidvillage.com:8888"
+      - "https://solidvillage.com:8000"
+      - "https://solidvillage.com"
+session:
+  cookie:
+    domain: "solidvillage.com"
+    secure: true # is needed for safari, because safari does not store secure cookies on localhost
+  issuer: "solidvillage.com"
+server:
+  public:
+    cors:
+      allow_origins:
+        - "https://solidvillage.com:8888"
+        - "https://solidvillage.com:8000"
+        - "https://solidvillage.com"
