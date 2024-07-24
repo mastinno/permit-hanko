@@ -2,6 +2,8 @@ const request = require('request');
 
 const blockedPhrases = new RegExp(/porn|sexy/); // No thank you.
 
+const allowOrigins = 'http://10.0.0.205:8000, http://10.0.0.205';
+
 let requireHeader = [
     'origin',
     'x-requested-with',
@@ -22,7 +24,7 @@ get handler handles standard GET reqs as well as streams
 */
 const proxy = method => (req, res, next) => {
 
-    res.header('Access-Control-Allow-Origin', '*'); // Actually do the CORS thing! :)
+    res.header('Access-Control-Allow-Origin', allowOrigins); // Actually do the CORS thing! :)
 
     let url;
     switch (method) {
@@ -104,7 +106,7 @@ const proxy = method => (req, res, next) => {
 opts handler allows us to use our own CORS preflight settings
 */
 function opts (req, res, next) { // Couple of lines taken from http://stackoverflow.com/questions/14338683
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', allowOrigins);
     res.header('Access-Control-Allow-Methods', 'GET'); // Only allow GET for now
     res.header('Access-Control-Allow-Headers', req.header('Access-Control-Request-Headers'));
     res.header('Access-Control-Max-Age', '86400'); // Cache preflight for 24 hrs if supported

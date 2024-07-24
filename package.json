@@ -15,10 +15,10 @@
     "@mui/icons-material": "^5.14.11",
     "@mui/lab": "^5.0.0-alpha.146",
     "@mui/material": "^5.14.11",
-    "@teamhanko/hanko-elements": "^0.8.3",
-    "@teamhanko/hanko-frontend-sdk": "^0.8.4",
+    "@teamhanko/hanko-elements": "file:./hanko/frontend/elements",
+    "@teamhanko/hanko-frontend-sdk": "file:./hanko/frontend/frontend-sdk",
     "jose": "^4.14.6",
-    "next": "latest",
+    "next": "^14.2.5",
     "permitio": "^2.1.0",
     "react": "latest",
     "react-dom": "latest"

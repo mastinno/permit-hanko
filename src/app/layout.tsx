@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography } from '@mui/material'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { HankoLogout } from './components/HankoLogout'
+//import { HankoLogout } from './components/HankoLogout'
 import HankoProfile from './components/HankoProfile'
 
 const inter = Inter({ subsets: ['latin'] })
