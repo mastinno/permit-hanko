@@ -38,7 +38,7 @@ services:
     build: ../../backend
     ports:
       - '8000:8000' # public
-      - '8001:8001' # admin
+      - '127.0.0.1:8001:8001' # admin
     restart: unless-stopped
     command: serve --config /etc/config/config.yaml all
     volumes:
@@ -52,7 +52,7 @@ services:
   postgresd:
     image: postgres:12-alpine
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     environment:
       - POSTGRES_USER=hanko
       - POSTGRES_PASSWORD=hanko
@@ -68,13 +68,13 @@ services:
   elements:
     build: ../../frontend
     ports:
-      - "9500:80"
+      - "127.0.0.1:9500:80"
     networks:
       - intranet
   quickstart:
     build: ../../quickstart
     ports:
-      - "8888:8080"
+      - "127.0.0.1:8888:8080"
     environment:
       - HANKO_URL=https://solidvillage.com:444
       - HANKO_URL_INTERNAL=http://hanko:8000
@@ -86,8 +86,8 @@ services:
 #    image: marcopas/docker-mailslurper:latest
     image: sha256:d4658691ed076161bb452f36b5948ee502fb3590181ec8f84813adbe49b45e4b
     ports:
-      - '8080:8080' # web UI
-      - '8085:8085'
+      - '127.0.0.1:8080:8080' # web UI
+      - '127.0.0.1:8085:8085'
     networks:
       - intranet
 networks:

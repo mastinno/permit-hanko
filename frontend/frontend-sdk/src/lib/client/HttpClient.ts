@@ -167,6 +167,11 @@ class HttpClient {
       xhr.setRequestHeader("Accept", "application/json");
       xhr.setRequestHeader("Content-Type", "application/json");
 
+      xhr.setRequestHeader('Access-Control-Allow-Origin', "*");
+      xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, OPTIONS');
+      xhr.setRequestHeader('Access-Control-Allow-Headers', 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range');
+      xhr.setRequestHeader('Access-Control-Max-Age', '86400'); // Cache preflight for 24 hrs if supported
+
       if (bearerToken) {
         xhr.setRequestHeader("Authorization", `Bearer ${bearerToken}`);
       }

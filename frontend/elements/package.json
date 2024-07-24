@@ -35,7 +35,7 @@
       "i18n/zh": [
         "dist/i18n/zh.d.ts"
       ],
-      "i18n/bn":[
+      "i18n/bn": [
         "dist/i18n/bn.d.ts"
       ],
       "i18n/all": [
