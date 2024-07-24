@@ -1,0 +1,9 @@
+login_text:
+  description: "The sign in content of the text email."
+  other: "Enter the following passcode to verify your identity:"
+ttl_text:
+  description: "The length how long the passcode is valid."
+  other: "The passcode is valid for {{ .TTL }} minutes."
+email_subject_login:
+  description: ""
+  other: "{{ .Code }} is your passcode for {{ .ServiceName }}"

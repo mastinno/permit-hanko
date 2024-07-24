@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/teamhanko/hanko/backend/cmd/user/import-or-export-list",
+  "$ref": "#/$defs/ImportOrExportList",
+  "$defs": {
+    "Emails": {
+      "items": {
+        "$ref": "#/$defs/ImportOrExportEmail"
+      },
+      "type": "array",
+      "description": "Emails Array of email addresses"
+    },
+    "ImportOrExportEmail": {
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "Address Valid email address"
+        },
+        "is_primary": {
+          "type": "boolean",
+          "description": "IsPrimary indicates if this is the primary email of the users. In the Emails array there has to be exactly one primary email."
+        },
+        "is_verified": {
+          "type": "boolean",
+          "description": "IsVerified indicates if the email address was previously verified."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "address",
+        "is_primary",
+        "is_verified"
+      ],
+      "description": "ImportOrExportEmail The import/export format for a user's email"
+    },
+    "ImportOrExportEntry": {
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "UserID optional uuid.v4. If not provided a new one will be generated for the user"
+        },
+        "emails": {
+          "$ref": "#/$defs/Emails",
+          "type": "array",
+          "minItems": 1,
+          "description": "Emails List of emails"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "CreatedAt optional timestamp of the users' creation. Will be set to the import date if not provided."
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UpdatedAt optional timestamp of the last update to the user. Will be set to the import date if not provided."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "emails"
+      ],
+      "description": "ImportOrExportEntry represents a user to be imported/export to the Hanko database"
+    },
+    "ImportOrExportList": {
+      "items": {
+        "$ref": "#/$defs/ImportOrExportEntry"
+      },
+      "type": "array",
+      "description": "ImportOrExportList a list of ImportEntries"
+    }
+  }
+}
