@@ -1,0 +1,25 @@
+services:
+  permit-hanko:
+    build: ./
+    ports:
+      - 3000:3000
+    volumes:
+      - './:/opt/app/'
+    restart: unless-stopped
+    networks:
+      - intranet
+  webserver:
+    image: nginx
+    command: [nginx-debug, '-g', 'daemon off;']
+    depends_on:
+      - permit-hanko
+    restart: unless-stopped
+    volumes:
+      - './keys/:/etc/config/keys/'
+      - './nginx-reverse-proxy.conf:/etc/nginx/conf.d/default.conf'
+    ports:
+      - "447:447" # reverse proxied to permit-hanko port 3000
+    networks:
+      - intranet
+networks:
+  intranet:
