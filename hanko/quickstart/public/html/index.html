@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#042F4B">
+    <title>Hanko Web Component Example</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <link href="../static/img/Favicon_32x32.png" rel="shortcut icon" type="image/x-icon">
+    <link href="../static/img/Favicon_256x256.png" rel="apple-touch-icon">
+</head>
+<body>
+
+<main class="main">
+    <div class="auth-container">
+        <hanko-auth lang="en" {{if .ConditionalUi}}experimental="conditionalMediation"{{end}}></hanko-auth>
+    </div>
+</main>
+
+<footer class="footer">
+    <img alt="Powered by Hanko" src="static/img/poweredBy.svg"/>
+</footer>
+
+<script type="module">
+    import { register } from "{{.HankoElementUrl}}";
+
+    const { hanko } = await register("{{.HankoUrl}}");
+
+    hanko.onAuthFlowCompleted(() => {
+        document.location.href = "/secured"
+    })
+</script>
+</body>
+</html>

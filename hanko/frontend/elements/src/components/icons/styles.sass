@@ -1,0 +1,103 @@
+@use '../../variables'
+
+.icon
+  display: inline-block
+  fill: variables.$brand-contrast-color
+  width: 18px
+
+  &.secondary
+    fill: variables.$color
+
+  &.disabled
+    fill: variables.$color-shade-1
+
+// Checkmark Styles
+
+.checkmark
+  @extend .icon
+  fill: variables.$brand-color
+
+  &.secondary
+    fill: variables.$color-shade-1
+
+  &.fadeOut
+    animation: fadeOut ease-out 1.5s forwards !important
+
+@keyframes fadeOut
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+// ExclamationMark Styles
+
+.exclamationMark
+  @extend .icon
+  fill: variables.$error-color
+  padding: 1px 6px 0 4px
+
+// Loading Spinner Styles
+
+.loadingSpinnerWrapperIcon
+  @extend .loadingSpinnerWrapper
+  width: 100%
+  column-gap: 10px
+  margin-left: 10px
+
+.loadingSpinnerWrapper
+  display: inline-flex
+  align-items: center
+  height: 100%
+  margin: 0 5px
+  justify-content: inherit
+
+  &.centerContent
+    justify-content: center
+
+  &.maxWidth
+    width: 100%
+
+  .loadingSpinner
+    @extend .icon
+    fill: variables.$brand-color
+    animation: spin 500ms ease-in-out infinite
+
+  &.secondary
+    fill: variables.$color-shade-1
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
+// Google Styles
+
+.googleIcon
+  &.disabled
+    fill: variables.$color-shade-1
+
+  &.blue
+    fill: #4285F4
+  &.green
+    fill: #34A853
+  &.yellow
+    fill: #FBBC05
+  &.red
+    fill: #EA4335
+
+.microsoftIcon
+  &.disabled
+    fill: variables.$color-shade-1
+
+  &.blue
+    fill: #00A4EF
+  &.green
+    fill: #7FBA00
+  &.yellow
+    fill: #FFB900
+  &.red
+    fill: #F25022
+
