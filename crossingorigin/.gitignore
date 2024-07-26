@@ -1,7 +1,0 @@
-node_modules
-.DS_Store
-coverage
-tmp
-.jshintrc
-.npmignore
-npm-debug.log
