@@ -9,14 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@docusaurus/theme-common": "^3.4.0",
+    "@docusaurus/theme-live-codeblock": "^3.4.0",
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.11",
     "@mui/lab": "^5.0.0-alpha.146",
     "@mui/material": "^5.14.11",
-    "@teamhanko/hanko-elements": "file:./hanko/frontend/elements",
-    "@teamhanko/hanko-frontend-sdk": "file:./hanko/frontend/frontend-sdk",
+    "@teamhanko/hanko-elements": "file:./libs/hanko/frontend/elements",
+    "@teamhanko/hanko-frontend-sdk": "file:./libs/hanko/frontend/frontend-sdk",
     "jose": "^4.14.6",
     "next": "^14.2.5",
     "permitio": "^2.1.0",
