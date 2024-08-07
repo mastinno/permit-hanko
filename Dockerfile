@@ -8,7 +8,6 @@ WORKDIR /opt/app
 ENV PATH=/opt/app/node_modules/.bin:$PATH
 
 COPY . .
-RUN ls
 RUN cd ./libs/hanko/frontend && npm install && npm run build:elements
 RUN npm install
 
